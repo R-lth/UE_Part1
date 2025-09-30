@@ -11,10 +11,11 @@ void UMyGameInstance::Init()
     TCHAR LogCharArray[] = TEXT("Hello Unreal");
     UE_LOG(LogTemp, Log, TEXT("%s"), LogCharArray);
 
+#pragma region 문자열 실습
     // 언리얼 문자열 타입 사용.
     FString LogCharString = LogCharArray;
     UE_LOG(LogTemp, Log, TEXT("%s"), *LogCharString);
-    
+
     // FString에서 TCHAR를 가져오는 방법.
     const TCHAR* LogCharPointer = *LogCharString;
     TCHAR* LogCharDataPointer = LogCharString.GetCharArray().GetData();
@@ -53,4 +54,5 @@ void UMyGameInstance::Init()
         *FloatString,
         *IntString
     );
+#pragma endregion    
 }

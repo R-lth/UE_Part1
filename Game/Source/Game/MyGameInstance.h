@@ -14,6 +14,6 @@ class GAME_API UMyGameInstance : public UGameInstance
 {
 	GENERATED_BODY()
 	
-private:
+public:
 	virtual void Init() override;
 };

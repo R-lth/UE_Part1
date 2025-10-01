@@ -12,6 +12,7 @@ UMyGameInstance::UMyGameInstance()
 void UMyGameInstance::Init()
 {
 	Super::Init();
+    
     // Custom initialization code here
     UE_LOG(LogTemp, Log, TEXT("======================="));
 
@@ -19,6 +20,11 @@ void UMyGameInstance::Init()
     // 런타임 클래스 정보는 GetClass() 함수 사용.
     UClass* ClassRuntime = GetClass();
     UClass* ClassCompile = UMyGameInstance::StaticClass();
+
+    // 어서트 (Assert)
+    check(ClassRuntime != ClassCompile);
+    // ensure(ClassRuntime != ClassCompile);
+    // ensureMsgf(ClassRuntime != ClassCompile, TEXT("일부로 발생시킨 오류"));
 
     // 두 타입 정보를 비교 후 결과 저장.
     FString Result

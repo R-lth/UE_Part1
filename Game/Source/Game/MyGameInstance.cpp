@@ -21,10 +21,11 @@ void UMyGameInstance::Init()
     UClass* ClassRuntime = GetClass();
     UClass* ClassCompile = UMyGameInstance::StaticClass();
 
-    // 어서트 (Assert)
-    check(ClassRuntime != ClassCompile);
-    // ensure(ClassRuntime != ClassCompile);
-    // ensureMsgf(ClassRuntime != ClassCompile, TEXT("일부로 발생시킨 오류"));
+    // 어서트 (Assert).
+    //check(ClassRuntime != ClassCompile);
+    //ensure(ClassRuntime != ClassCompile);
+    //ensureMsgf(ClassRuntime != ClassCompile, TEXT("일부러 발생시킨 오류"));
+
 
     // 두 타입 정보를 비교 후 결과 저장.
     FString Result
@@ -32,6 +33,21 @@ void UMyGameInstance::Init()
 
     // 결과 출력.
     UE_LOG(LogTemp, Log, TEXT("클래스 비교 결과: %s"), *Result);
+
+    // 클래스 이름 출력.
+    UE_LOG(
+        LogTemp,
+        Log,
+        TEXT("학교를 담당하는 클래스 이름: %s"),
+        *ClassRuntime->GetName()
+    );
+
+    // 값 출력.
+    SchoolName = TEXT("포텐업");
+
+    UE_LOG(LogTemp, Log, TEXT("학교 이름: %s"), *SchoolName);
+    UE_LOG(LogTemp, Log, TEXT("학교 이름 기본값: %s"),
+        *GetClass()->GetDefaultObject<UMyGameInstance>()->SchoolName);
 
     UE_LOG(LogTemp, Log, TEXT("======================="));
 
